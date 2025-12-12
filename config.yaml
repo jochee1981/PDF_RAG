@@ -1,0 +1,32 @@
+# PDF RAG 시스템 설정 파일
+
+# Ollama 모델 설정
+ollama:
+  llm_model: "llama3"  # LLM 모델명
+  embedding_model: "mxbai-embed-large"  # 임베딩 모델명
+  base_url: "http://localhost:11434"  # Ollama 서버 URL
+
+# 텍스트 분할 설정
+text_splitter:
+  chunk_size: 1000  # 청크 크기
+  chunk_overlap: 200  # 청크 오버랩
+
+# 벡터스토어 설정
+vectorstore:
+  persist_directory: "chroma_pdf_cache"  # 벡터스토어 저장 디렉토리
+  search_kwargs:
+    k: 4  # 검색할 문서 개수
+
+# PDF 파일 관리 설정
+pdf:
+  storage_directory: "pdfs"  # PDF 파일 저장 디렉토리
+
+# RAG 설정
+rag:
+  system_prompt: "You are a helpful assistant. Read the PDF content and answer the question. Translate the answer in Korean with emoji."
+  enable_cache: true  # 캐시 사용 여부
+
+# 로깅 설정
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+
